@@ -10,19 +10,20 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
     userChoice = e.target.id
     userChoiceDisplay.innerHTML = userChoice
     generateComputerChoice()
+    getResult()
 }))
 
 function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * (possibleChoices.length + 1))
     
     if (randomNumber === 1){
-        computerChoice = 'rock'
+        computerChoice = 'wolfy'
     }
     if (randomNumber === 2){
-        computerChoice = 'scissors'
+        computerChoice = 'toucan'
     }
     if (randomNumber === 3){
-        computerChoice = 'paper'
+        computerChoice = 'kitty'
     }
     computerChoiceDisplay.innerHTML = computerChoice
     console.log(computerChoice)
@@ -32,21 +33,22 @@ function getResult(){
     if (computerChoice === userChoice){
         result = "It's a draw!"
     }
-    if (computerChoice === "rock" && userChoice === "paper"){
-        result = "You win!"
+    if (computerChoice === "wolfy" && userChoice === "toucan"){
+        result = "RrrRrr....rr....? (you win!)"
     }
-    if (computerChoice === "rock" && userChoice === "scissors"){
+    if (computerChoice === "wolfy" && userChoice === "kitty"){
         result = "You lose!"
     }
-    if (computerChoice === "paper" && userChoice === "scissors"){
-        result = "You win!"
+    if (computerChoice === "kitty" && userChoice === "wolfy"){
+        result = "RRrrrRRRRrrrahhhh! (you win)"
     }
-    if (computerChoice === "paper" && userChoice === "rock"){
-        result = "You lose!"
+    if (computerChoice === "kitty" && userChoice === "toucan"){
+        result = "Meeeeow! *pounce* (you lose)"
     }
-    if (computerChoice === "scissors" && userChoice === "rock"){
-        result = "You win!"
-    }if (computerChoice === "scissors" && userChoice === "paper"){
-        result = "You lose!"
+    if (computerChoice === "toucan" && userChoice === "kitty"){
+        result = "Meeeeow! *pounce* (you win)"
+    }if (computerChoice === "toucan" && userChoice === "wolfy"){
+        result = "RrrRrr....rr....? (you lose!)"
     }
+    resultDisplay.innerHTML = result
 }
